@@ -13,7 +13,7 @@ from itertools import permutations
 
 
 def cryptarithm(first, second, sum):
-    alpha, solution, temp, digits = [], [], '', '0123456789'
+    alpha, temp, digits = [], '', '0123456789'
     a, b, c = len(first), len(second), len(sum)
     for i in chain(first, second, sum):
         if i not in alpha:
@@ -21,18 +21,10 @@ def cryptarithm(first, second, sum):
     for i in permutations(digits, len(alpha)):
         for j in chain(first, second, sum):
             temp += i[alpha.index(j)]
-        nfirst, nsecond, nsum = temp[:a], temp[a:a+b], temp[a+b:]
-        if int(nfirst) + int(nsecond) == int(nsum):
-            if nfirst[0] != '0' and nsecond[0] != '0' and nsum[0] != '0':
-                solution.append(i)
+        if int(temp[:a]) + int(temp[a:a+b]) == int(temp[a+b:]):
+            if temp[:a][0] != '0' and temp[a:a+b][0] != '0' and temp[a+b:][0] != '0':
+                print(str(alpha) + "\n" + str(i) + "\n" + temp[:a] + " + " + temp[a:a + b] + " = " + temp[a + b:])
         temp = ''
-    print(alpha)
-    print(solution)
-    for i in solution:
-        for j in chain(first, second, sum):
-            temp += i[alpha.index(j)]
-        nfirst, nsecond, nsum = temp[:a], temp[a:a + b], temp[a + b:]
-        print(nfirst + " + " + nsecond + " = " + nsum)
 
 
 cryptarithm('send', 'more', 'money')
