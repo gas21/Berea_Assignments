@@ -9,14 +9,9 @@ import math
 def crack(text):
     deciphered = ''
     length = int(round(math.sqrt(len(text))))
-    text = text[:length**2]
-    z = [[[] for i in range(length)] for i in range(length)]
-    for i, letter in enumerate(text, 0):
-        z[i // length][i % length].append(letter)
     for j in range(length):
-        for i in z:
-            deciphered += i[j][0]
-    print(z)
+        for i in range(length):
+            deciphered += text[length*i:][j]
     return deciphered
 
 
