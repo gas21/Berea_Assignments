@@ -1,4 +1,9 @@
-s = [i for i in range(4) for j in range(3)]
-a = [True if i in s else False for i in range(5) for j in range(3)]
-print(s)
-print(a)
+import turtle
+
+k = turtle.Turtle()
+k.resizemode("user")
+k.shapesize(560 // (n*42), 560 // (n*42), outline=None)
+for i in range(10):
+    k.stamp()
+    k.forward(10)
+turtle.exitonclick()
