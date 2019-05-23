@@ -19,7 +19,7 @@ def infer_spaces(s):
     """Uses dynamic programming to infer the location of spaces in a string
     without spaces."""
 
-    words = open("words-by-frequency.txt").read().split()
+    words = open("A4-words-by-frequency.txt").read().split()
     wordcost = dict((k, log((i + 1) * log(len(words)))) for i, k in enumerate(words))
     maxword = max(len(x) for x in words)
 
@@ -30,7 +30,7 @@ def infer_spaces(s):
         # Build a cost dictionary, assuming Zipf's law and cost = -math.log(probability).
 
         candidates = enumerate(reversed(cost[max(0, i-maxword):i]))
-        return min((c + wordcost.get(s[i-k-1:i], 9e999), k+1) for k,c in candidates)
+        return min((c + wordcost.get(s[i-k-1:i], 9e999), k+1) for k, c in candidates)
 
     # Build the cost array.
     cost = [0]
@@ -42,7 +42,7 @@ def infer_spaces(s):
     out = []
     i = len(s)
     while i > 0:
-        c,k = best_match(i)
+        c, k = best_match(i)
         assert c == cost[i]
         out.append(s[i-k:i])
         i -= k

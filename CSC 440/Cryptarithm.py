@@ -8,6 +8,7 @@
 Note: May take a long time depending on input and processing speed.
 """
 from itertools import permutations
+import time
 
 
 def cryptarithm(first, second, sum):
@@ -22,4 +23,6 @@ def cryptarithm(first, second, sum):
         temp = ''
 
 
+a = time.process_time()
 cryptarithm('send', 'more', 'money')
+print(time.process_time()-a)
