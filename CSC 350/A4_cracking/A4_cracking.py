@@ -8,6 +8,7 @@ from math import log, sqrt
 
 
 def crack(text, r):
+    """Crack the cipher text encrypted with a square matrix."""
     return ''.join(letter for j in zip(*[text[i*r:i*r+r] for i in range(r)]) for letter in j)
 
 
