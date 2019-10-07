@@ -1,8 +1,6 @@
 # CSC 350 Computer Security
 # Assignment 4 https://docs.google.com/document/d/1TiZi-7qda_Ywc76z35KEPdVKvhqBDZLHwlaaAXF5a7c
 # Author Soe Win Han
-# Attribution: the "infer-spaces" function is from
-# https://stackoverflow.com/questions/8870261/how-to-split-text-without-spaces-into-list-of-words
 
 from math import log, sqrt
 
