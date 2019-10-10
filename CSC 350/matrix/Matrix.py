@@ -36,9 +36,8 @@ class Matrix:
     def mult(self, other):
         if isinstance(other, int) or isinstance(other, float):
             return [[i * other for i in j] for j in self.matrix]
-        else:
-            return [[dot(self.get_row(i), other.get_col(j)) for j in range(other.num_col)]
-                    for i in range(self.num_row)]
+        return [[dot(self.get_row(i), other.get_col(j)) for j in range(other.num_col)]
+                for i in range(self.num_row)]
 
     def transpose(self):
         return [list(a) for a in zip(*self.matrix)]
