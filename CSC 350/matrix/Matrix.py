@@ -26,7 +26,7 @@ class Matrix:
     def add(self, other):
         assert len(self.matrix[0]) == len(other.matrix[0])
         assert len(self.matrix == len(other.matrix))
-        return [i + j for k, l in zip(self.matrix, other.matrix) for i, j in zip(k, l)]
+        return [[i + j for i, j in zip(self.matrix[k], other.matrix[k])] for k in range(len(self.matrix))]
 
     def sub(self, other):
         assert len(self.matrix[0]) == len(other.matrix[0])
