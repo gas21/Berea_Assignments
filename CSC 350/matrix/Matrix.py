@@ -26,7 +26,7 @@ class Matrix:
     def add(self, other):
         assert len(self.matrix[0]) == len(other.matrix[0])
         assert len(self.matrix == len(other.matrix))
-        return [i + j for k, l in zip(self.matrix, other.matrix) for i, j in zip(k, l)]
+        return [[i + j for i, j in zip(self.matrix[k], other.matrix[k])] for k in range(len(self.matrix))]
 
     def sub(self, other):
         assert len(self.matrix[0]) == len(other.matrix[0])
@@ -36,9 +36,8 @@ class Matrix:
     def mult(self, other):
         if isinstance(other, int) or isinstance(other, float):
             return [[i * other for i in j] for j in self.matrix]
-        else:
-            return [[dot(self.get_row(i), other.get_col(j)) for j in range(other.num_col)]
-                    for i in range(self.num_row)]
+        return [[dot(self.get_row(i), other.get_col(j)) for j in range(other.num_col)]
+                for i in range(self.num_row)]
 
     def transpose(self):
         return [list(a) for a in zip(*self.matrix)]
@@ -53,4 +52,3 @@ if __name__ == "__main__":
     print("Multiply0.5: " + str(matrix1.mult(0.5)))
     print("Transpose: " + str(matrix1.transpose()))
     print("Dot Helper: " + str(dot([1, 2, 3], [[10], [20], [30]])))
-
