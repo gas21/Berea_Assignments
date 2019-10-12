@@ -3,7 +3,7 @@
 
 def dot(vec1, vec2):
     if len(vec1) != len(vec2):
-        return -1
+        return
     return sum(i * j[0] for i, j in zip(vec1, vec2))
 
 
